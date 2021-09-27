@@ -4,6 +4,9 @@ FLiP:   StreamNative:   Cloud-Native:   Streaming Analytics Using Apache Flink S
 
 ## Running on NVIDIA XAVIER NX - 6 CPU, GPU, 8GB RAM
 
+![Xavier](https://github.com/tspannhw/StreamingAnalyticsUsingFlinkSQL/raw/main/images/xavierjtop.jpg)
+
+
 ## Compile Java
 
 
@@ -13,6 +16,10 @@ jetson_clocks
 mvn clean compile assembly:single
 
 ```
+
+## Create Your Topic and Schema
+
+![StreamNative Cloud Schema](https://github.com/tspannhw/StreamingAnalyticsUsingFlinkSQL/raw/main/images/iotschema.jpg)
 
 
 ## Run Python and Java
@@ -35,6 +42,9 @@ done
 
 ```
 
+## Run Your Flink SQL
+
+![StreamNative Cloud Flink SQL](https://github.com/tspannhw/StreamingAnalyticsUsingFlinkSQL/raw/main/images/streamnativecloud_flinksql2.jpg)
 
 ## Checks
 
