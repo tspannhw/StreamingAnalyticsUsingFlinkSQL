@@ -2,12 +2,13 @@
 
 FLiP:   StreamNative:   Cloud-Native:   Streaming Analytics Using Apache Flink SQL on Apache Pulsar
 
-## Running on NVIDIA XAVIER NX
+## Running on NVIDIA XAVIER NX - 6 CPU, GPU, 8GB RAM
 
 ## Compile Java
 
 
 ```
+jetson_clocks
 
 mvn clean compile assembly:single
 
