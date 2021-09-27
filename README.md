@@ -67,7 +67,10 @@ jtop
 ```
 
 
-## Resources
+## Resources (Ops, DevOps, Management, Administration, SQL, Compute, Deploy)
 
 * https://docs.streamnative.io/cloud/stable/compute/flink-sql
 * https://docs.streamnative.io/cloud/stable/compute/flink-sql-cookbook
+* https://docs.streamnative.io/cloud/stable/quickstart/quickstart-manager
+* https://docs.streamnative.io/cloud/stable/quickstart/quickstart-snctl
+* https://docs.streamnative.io/cloud/stable/use/topic
