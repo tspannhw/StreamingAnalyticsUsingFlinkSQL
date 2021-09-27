@@ -2,6 +2,7 @@
 
 FLiP:   StreamNative:   Cloud-Native:   Streaming Analytics Using Apache Flink SQL on Apache Pulsar
 
+## Running on NVIDIA XAVIER NX
 
 ## Compile Java
 
@@ -9,5 +10,35 @@ FLiP:   StreamNative:   Cloud-Native:   Streaming Analytics Using Apache Flink S
 ```
 
 mvn clean compile assembly:single
+
+```
+
+
+## Run Python and Java
+
+```
+
+#!/bin/bash
+
+while :
+do
+
+        DATE=$(date +"%Y-%m-%d_%H%M")
+        python3 -W ignore /home/nvidia/nvme/minifi-jetson-xavier/demo.py --camera /dev/video0 --network googlenet /home/nvidia/nvme/images/$DATE.jpg  2>/dev/null
+
+        java -jar IoTProducer-1.0-jar-with-dependencies.jar --topic 'jetsoniot2' --serviceUrl pulsar+ssl://cluster.org.snio.cloud:6651 --audience urn:sn:pulsar:org:cluster --issuerUrl https://auth.streamnative.cloud --privateKey file:///home/nvidia/nvme/pulsar-demo/org-tspann.json --message "`tail -1 /home/nvidia/nvme/logs/demo1.log`"
+
+        sleep 1
+done
+
+
+```
+
+
+## Checks
+
+```
+
+jtop
 
 ```
