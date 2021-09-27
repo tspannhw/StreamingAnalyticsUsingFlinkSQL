@@ -42,6 +42,11 @@ done
 
 ```
 
+## Create a Subscription and Confirm Data is Arriving
+
+![StreamNative Cloud Consumer(https://github.com/tspannhw/StreamingAnalyticsUsingFlinkSQL/raw/main/images/browsingdata.jpg)
+
+
 ## Run Your Flink SQL
 
 ![StreamNative Cloud Flink SQL](https://github.com/tspannhw/StreamingAnalyticsUsingFlinkSQL/raw/main/images/streamnativecloud_flinksql2.jpg)
