@@ -41,8 +41,15 @@ done
 
 
 ```
+## Create a New Topic
 
-## Create a Subscription and Confirm Data is Arriving
+![StreamNative Cloud Create New Topic](https://github.com/tspannhw/StreamingAnalyticsUsingFlinkSQL/raw/main/images/createNewTopic.jpg)
+
+## Create a New Subscription
+
+![StreamNative Cloud Create New Subscription](https://github.com/tspannhw/StreamingAnalyticsUsingFlinkSQL/raw/main/images/createNewSub.jpg)
+
+## Browse Data
 
 ![StreamNative Cloud Consumer](https://github.com/tspannhw/StreamingAnalyticsUsingFlinkSQL/raw/main/images/browsingdata.jpg)
 
@@ -58,3 +65,9 @@ done
 jtop
 
 ```
+
+
+## Resources
+
+* https://docs.streamnative.io/cloud/stable/compute/flink-sql
+* https://docs.streamnative.io/cloud/stable/compute/flink-sql-cookbook
