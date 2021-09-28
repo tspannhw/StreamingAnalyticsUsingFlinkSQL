@@ -74,3 +74,6 @@ jtop
 * https://docs.streamnative.io/cloud/stable/quickstart/quickstart-manager
 * https://docs.streamnative.io/cloud/stable/quickstart/quickstart-snctl
 * https://docs.streamnative.io/cloud/stable/use/topic
+* https://flink.apache.org/2019/05/03/pulsar-flink.html 
+* https://github.com/streamnative/pulsar-flink 
+* https://streamnative.io/en/blog/release/2021-04-20-flink-sql-on-streamnative-cloud 
