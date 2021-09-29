@@ -277,6 +277,11 @@ group by camera
 select *
 from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
 
+select camera,
+        min(cputempf) as mincputempf
+from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
+group by camera
+
 
 ```
 
