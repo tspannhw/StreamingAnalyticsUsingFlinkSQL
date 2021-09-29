@@ -240,6 +240,18 @@ CREATE TABLE jetsoniot3
   'scan.startup.mode' = 'earliest'
 )
 
+CREATE TABLE topitems (
+  uuid  STRING,
+  top1 STRING, top1pct STRING, 
+  camera STRING,
+  systemtime STRING,
+  cputempf STRING,
+  gputempf STRING,
+  insert_time TIMESTAMP(3)
+)
+
+
+
 ```
 
 ## Run Your Flink SQL
