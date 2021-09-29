@@ -249,7 +249,30 @@ CREATE TABLE jetsoniot3
 ```
 select cputempf, gputempf, diskusage, cpu, systemtime, uuid
 from jetsoniot2
-where cputempf > 105
+where cputempf > 80
+
+
+INSERT INTO jetsoniot2 VALUES
+  (1, 100, 30.15, CURRENT_TIMESTAMP),
+  (2, 200, 40, CURRENT_TIMESTAMP),
+  (3, 300, 28000.56, CURRENT_TIMESTAMP),
+  (4, 400, 42960.90, CURRENT_TIMESTAMP),
+  (5, 500, 50000.1, CURRENT_TIMESTAMP),
+  (6, 100, 688888888.7, CURRENT_TIMESTAMP),
+  (7, 300, 20.99, CURRENT_TIMESTAMP),
+  (8, 100, 6000, CURRENT_TIMESTAMP)
+  
+  
+  select camera,
+        max(cputempf) as maxcputempf, avg(cputempf) as avgcputtempf, min(cputempf) as mincputempf  
+from jetsoniot2 
+group by camera
+
+
+select camera,
+        max(cputempf) as maxcputempf
+from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
+group by camera
 
 ```
 
