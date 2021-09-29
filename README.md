@@ -274,6 +274,10 @@ select camera,
 from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
 group by camera
 
+select *
+from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
+
+
 ```
 
 ## Checks
