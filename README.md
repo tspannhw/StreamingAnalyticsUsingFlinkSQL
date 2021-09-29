@@ -53,6 +53,194 @@ done
 
 ![StreamNative Cloud Consumer](https://github.com/tspannhw/StreamingAnalyticsUsingFlinkSQL/raw/main/images/browsingdata.jpg)
 
+## Created Schema
+
+```
+{
+    "type": "record",
+    "name": "IoTMessage",
+    "namespace": "io.streamnative.examples.oauth2",
+    "fields": [
+        {
+            "name": "camera",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "cpu",
+            "type": "double"
+        },
+        {
+            "name": "cputemp",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "cputempf",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "diskusage",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "filename",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "gputemp",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "gputempf",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "host",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "host_name",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "imageinput",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "ipaddress",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "macaddress",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "memory",
+            "type": "double"
+        },
+        {
+            "name": "networktime",
+            "type": "double"
+        },
+        {
+            "name": "runtime",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "systemtime",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "te",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "top1",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        },
+        {
+            "name": "top1pct",
+            "type": "double"
+        },
+        {
+            "name": "uuid",
+            "type": [
+                "null",
+                "string"
+            ],
+            "default": null
+        }
+    ]
+}
+```
+
+
+## Create a Flink SQL Table on Pulsar
+
+```
+CREATE TABLE default_catalog.default_database.nvidiasensor
+(
+  `id` STRING, uuid STRING, ir STRING,
+  `end` STRING, lux STRING, gputemp STRING, 
+  cputemp STRING, `te` STRING, systemtime STRING, hum STRING,
+ memory STRING, gas STRING, pressure STRING, 
+ `host` STRING, diskusage STRING, ipaddress STRING, macaddress STRING, 
+  gputempf STRING, host_name STRING, camera STRING, filename STRING, 
+    `runtime` STRING, cpu STRING,cputempf STRING, imageinput STRING,
+    `networktime` STRING, top1 STRING, top1pct STRING, 
+  publishTime TIMESTAMP(3) METADATA,
+  WATERMARK FOR publishTime AS publishTime - INTERVAL '5' SECOND
+) WITH (
+  'connector' = 'pulsar',
+  'topic' = 'persistent://public/default/jetsoniot2',
+  'value.format' = 'json',
+  'scan.startup.mode' = 'earliest'
+);
+
+```
 
 ## Run Your Flink SQL
 
