@@ -221,7 +221,8 @@ done
 ## Create a Flink SQL Table on Pulsar
 
 ```
-CREATE TABLE default_catalog.default_database.nvidiasensor
+
+CREATE TABLE jetsoniot3
 (
   `id` STRING, uuid STRING, ir STRING,
   `end` STRING, lux STRING, gputemp STRING, 
@@ -234,11 +235,10 @@ CREATE TABLE default_catalog.default_database.nvidiasensor
   publishTime TIMESTAMP(3) METADATA,
   WATERMARK FOR publishTime AS publishTime - INTERVAL '5' SECOND
 ) WITH (
-  'connector' = 'pulsar',
   'topic' = 'persistent://public/default/jetsoniot2',
   'value.format' = 'json',
   'scan.startup.mode' = 'earliest'
-);
+)
 
 ```
 
