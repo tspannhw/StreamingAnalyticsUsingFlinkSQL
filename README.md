@@ -58,6 +58,13 @@ done
 
 ![StreamNative Cloud Flink SQL](https://github.com/tspannhw/StreamingAnalyticsUsingFlinkSQL/raw/main/images/streamnativecloud_flinksql2.jpg)
 
+```
+select cputempf, gputempf, diskusage, cpu, systemtime, uuid
+from jetsoniot2
+where cputempf > 105
+
+```
+
 ## Checks
 
 ```
