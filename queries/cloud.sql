@@ -43,10 +43,10 @@ select top1pct, top1,gputempf,cputempf,runtime,systemtime,cpu,diskusage,memory
 from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
 where CAST(cputempf as double) > 75
 
-SELECT top1, COUNT(*) AS ai_cnt FROM jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */ GROUP BY top1
-
 /* lots of resources */
 
+
+SELECT top1, COUNT(*) AS ai_cnt FROM jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */ GROUP BY top1
 
 
 
