@@ -1,3 +1,18 @@
+/** This is a row
+
+sg:{"uuid": "xav_uuid_video0_gzm_20210924145705", "camera": "/dev/video0", "ipaddress": "192.168.1.183", 
+"networktime": 24.993919372558594, "top1pct": 34.326171875, "top1": "monitor", "cputemp": "44.0",
+"gputemp": "45.0", "gputempf": "113", "cputempf": "111", "runtime": "5", "host": "nvidia-desktop", 
+"filename": "/home/nvidia/nvme/images/out_video0_kaa_20210924145705.jpg",
+"imageinput": "/home/nvidia/nvme/images/img_video0_khe_20210924145705.jpg",
+"host_name": "nvidia-desktop", "macaddress": "70:66:55:15:b4:a5",
+"te": "5.301141262054443", "systemtime": "09/24/2021 10:57:10",
+"cpu": 15.3, "diskusage": "33028.2 MB", 
+"memory": 33.2}
+
+*/
+
+/** queries **/ 
 select top1,
         min(cputempf) as mincputempf
 from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
