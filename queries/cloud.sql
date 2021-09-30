@@ -24,6 +24,7 @@ select top1,
 from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
 group by top1
 
+/// lots of resources
 select top1,
         avg(CAST (cputempf as double)) as avgcputempf, avg( CAST(gputempf as double)) as avggputempf,
         min(CAST (cputempf as double)) as mincputempf, min( CAST(gputempf as double)) as mingputempf,
