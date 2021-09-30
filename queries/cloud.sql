@@ -34,7 +34,22 @@ select top1,
 from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
 group by top1
 
+/*** Fast Queries ***/
+
+select top1pct, top1,gputempf,cputempf,runtime,systemtime,cpu,diskusage,memory
+from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
+
+select top1pct, top1,gputempf,cputempf,runtime,systemtime,cpu,diskusage,memory
+from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
+where CAST(cputempf as double) > 75
+
+SELECT top1, COUNT(*) AS ai_cnt FROM jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */ GROUP BY top1
+
 /* lots of resources */
+
+
+
+
 select top1,
         avg(CAST (cputempf as double)) as avgcputempf, avg( CAST(gputempf as double)) as avggputempf,
         min(CAST (cputempf as double)) as mincputempf, min( CAST(gputempf as double)) as mingputempf,
