@@ -10,7 +10,6 @@ sg:{"uuid": "xav_uuid_video0_gzm_20210924145705", "camera": "/dev/video0", "ipad
 "cpu": 15.3, "diskusage": "33028.2 MB", 
 "memory": 33.2}
 
-TO_TIMESTAMP(systemtime,  'MM/dd/yyyy HH:mm:ss')
 
 */
 
