@@ -68,6 +68,14 @@ where top1 in ('monitor','crane','modem','envelope','person')
 SELECT top1, COUNT(*) AS ai_cnt FROM jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */ GROUP BY top1
 
 
+select uuid, top1pct, top1,
+cputemp,gputemp,gputempf,cputempf,runtime,systemtime,cpu,diskusage,memory,PROCTIME()
+from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
+where top1 in ('monitor','crane','modem','envelope','person')
+AND
+CAST(cputempf as double) > 75
+
+
 /** dont run this one yet **/
 
 select top1,
