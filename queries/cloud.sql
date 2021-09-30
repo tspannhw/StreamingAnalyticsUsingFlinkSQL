@@ -10,71 +10,10 @@ sg:{"uuid": "xav_uuid_video0_gzm_20210924145705", "camera": "/dev/video0", "ipad
 "cpu": 15.3, "diskusage": "33028.2 MB", 
 "memory": 33.2}
 
+TO_TIMESTAMP(systemtime,  'MM/dd/yyyy HH:mm:ss')
+
 */
 
-/** tables **/
-
-CREATE TABLE jetsoniotts2 (  uuid STRING,
-camera STRING,
- ipaddress STRING,
-    `networktime` STRING,
-top1pct double, 
- top1 STRING, 
-cputemp STRING,
-gputemp STRING,
-gputempf STRING,
-cputempf STRING,
-`runtime` STRING,
-`host` STRING,
-`filename` STRING,
-imageinput STRING,
-host_name STRING,
-macaddress STRING,
-`te` STRING,
-`systemtime` STRING,
-cpu double,
-`diskusage` STRING,
-`memory` double,
-  publishTime TIMESTAMP(3) METADATA,
-  WATERMARK FOR publishTime AS publishTime - INTERVAL '5' SECOND
-) WITH (
-  'topic' = 'persistent://public/default/jetsoniot2',
-  'value.format' = 'json',
-  'scan.startup.mode' = 'earliest'
-)
-
-CREATE TABLE jetsoniotresults
-(
-  uuid STRING,
-camera STRING,
- ipaddress STRING,
-    `networktime` STRING,
-top1pct double, 
- top1 STRING, 
-cputemp STRING,
-gputemp STRING,
-gputempf STRING,
-cputempf STRING,
-`runtime` STRING,
-`host` STRING,
-`filename` STRING,
-imageinput STRING,
-host_name STRING,
-macaddress STRING,
-`te` STRING,
-`systemtime` STRING,
-cpu double,
-`diskusage` STRING,
-`memory` double,
-  publishTime TIMESTAMP(3) METADATA,
-  WATERMARK FOR publishTime AS publishTime - INTERVAL '5' SECOND
-)
-
-/** created tables queries **/
-
-SELECT * FROM
-jetsoniotts2
-/*+ OPTIONS('scan.startup.mode'='earliest') */
 
 /** queries **/ 
 select top1,
