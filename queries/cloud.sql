@@ -16,6 +16,13 @@ sg:{"uuid": "xav_uuid_video0_gzm_20210924145705", "camera": "/dev/video0", "ipad
 
 /** queries **/ 
 
+select uuid, top1pct, top1,
+cputemp,gputemp,gputempf,cputempf,runtime, TO_TIMESTAMP(systemtime,  'MM/dd/yyyy HH:mm:ss') as systime,cpu,diskusage,memory
+from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
+where top1 in ('monitor','crane','modem','envelope','person','lakeside, lakeshore','racer, race car, racing car','tow truck, tow car, wrecker')
+AND
+CAST(cputempf as double) > 75
+
 select cpu, uuid, cputempf, gputempf, diskusage, TO_TIMESTAMP(systemtime,  'MM/dd/yyyy HH:mm:ss'), runtime, top1, top1pct
 from jetsoniot2  /*+ OPTIONS('scan.startup.mode'='earliest') */
 
