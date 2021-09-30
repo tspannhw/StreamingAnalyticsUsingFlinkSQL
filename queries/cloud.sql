@@ -43,6 +43,13 @@ select top1pct, top1,gputempf,cputempf,runtime,systemtime,cpu,diskusage,memory
 from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
 where CAST(cputempf as double) > 75
 
+select uuid, camera, ipaddress, networktime, top1pct, top1,
+cputemp,gputemp,gputempf,cputempf,runtime,host,filename,imageinput,
+host_name,macaddress,te,systemtime,cpu,diskusage,memory
+from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
+where top1 in ('monitor','crane','modem','envelope','person')
+
+
 /* lots of resources, not too fast */
 
 
