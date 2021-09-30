@@ -16,6 +16,10 @@ TO_TIMESTAMP(systemtime,  'MM/dd/yyyy HH:mm:ss')
 
 
 /** queries **/ 
+
+select cpu, uuid, cputempf, gputempf, diskusage, TO_TIMESTAMP(systemtime,  'MM/dd/yyyy HH:mm:ss'), runtime, top1, top1pct
+from jetsoniot2  /*+ OPTIONS('scan.startup.mode'='earliest') */
+
 select top1,
         min(cputempf) as mincputempf
 from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
