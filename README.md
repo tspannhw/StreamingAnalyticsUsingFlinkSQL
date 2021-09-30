@@ -250,7 +250,32 @@ CREATE TABLE topitems (
   insert_time TIMESTAMP(3)
 )
 
-
+CREATE TABLE jetsoniotresults
+(
+  uuid STRING,
+camera STRING,
+ ipaddress STRING,
+    `networktime` STRING,
+top1pct double, 
+ top1 STRING, 
+cputemp STRING,
+gputemp STRING,
+gputempf STRING,
+cputempf STRING,
+`runtime` STRING,
+`host` STRING,
+`filename` STRING,
+imageinput STRING,
+host_name STRING,
+macaddress STRING,
+`te` STRING,
+`systemtime` STRING,
+cpu double,
+`diskusage` STRING,
+`memory` double,
+  publishTime TIMESTAMP(3) METADATA,
+  WATERMARK FOR publishTime AS publishTime - INTERVAL '5' SECOND
+)
 
 ```
 
