@@ -15,6 +15,18 @@ from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
 where top1 in ('monitor','crane','modem','envelope','person','laptop','joystick','menu','mouse,computer mouse')
 
 select top1,
-        min(CAST (cputempf as double)) as avgcputempf, min(gputempf) as avggpttempf
+        min(CAST (cputempf as double)) as mincputempf, min(gputempf) as mingputempf
+from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
+group by top1
+
+select top1,
+        avg(CAST (cputempf as double)) as avgcputempf, avg( CAST(gputempf as double)) as avggpttempf
+from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
+group by top1
+
+select top1,
+        avg(CAST (cputempf as double)) as avgcputempf, avg( CAST(gputempf as double)) as avggputempf,
+        min(CAST (cputempf as double)) as mincputempf, min( CAST(gputempf as double)) as mingputempf,
+		max(CAST (cputempf as double)) as  maxcputempf, max( CAST(gputempf as double)) as maxgputempf
 from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
 group by top1
