@@ -14,6 +14,10 @@ cputemp,gputemp,gputempf,cputempf,runtime,te,systemtime,cpu,diskusage,memory
 from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
 where top1 in ('monitor','crane','modem','envelope','person','laptop','joystick','menu','mouse,computer mouse')
 
+select top1pct, top1,gputempf,cputempf,runtime,systemtime,cpu,diskusage,memory
+from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
+where top1 in ('monitor','crane','modem','envelope','person','laptop','joystick','menu','mouse,computer mouse','seat belt, seatbelt')
+
 select top1,
         min(CAST (cputempf as double)) as mincputempf, min(gputempf) as mingputempf
 from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
