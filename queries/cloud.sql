@@ -43,12 +43,13 @@ select top1pct, top1,gputempf,cputempf,runtime,systemtime,cpu,diskusage,memory
 from jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */
 where CAST(cputempf as double) > 75
 
-/* lots of resources */
+/* lots of resources, not too fast */
 
 
 SELECT top1, COUNT(*) AS ai_cnt FROM jetsoniot2 /*+ OPTIONS('scan.startup.mode'='earliest') */ GROUP BY top1
 
 
+/** dont run this one yet **/
 
 select top1,
         avg(CAST (cputempf as double)) as avgcputempf, avg( CAST(gputempf as double)) as avggputempf,
